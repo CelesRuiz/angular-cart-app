@@ -1,0 +1,143 @@
+h1 {
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.cart {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        margin-bottom: 12px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        button {
+            background: #e53935;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+
+            &:hover {
+                background: #b71c1c;
+            }
+        }
+    }
+
+    .total {
+        text-align: right;
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 2px solid #e0e0e0;
+    }
+
+    .empty {
+        text-align: center;
+        color: #999;
+        padding: 40px;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    margin-bottom: 32px;
+    margin: 0 auto;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+
+            &:focus {
+                outline: none;
+                border-color: #1976d2;
+            }
+        }
+    }
+
+    button {
+        padding: 10px;
+        background: #1976d2;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+
+        &:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        &:hover:not(:disabled) {
+            background: #1565c0;
+        }
+    }
+}
+
+.header {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        margin: 0;
+    }
+}
+
+.btn-logout {
+    background: transparent;
+    color: #e53935;
+    border: 2px solid #e53935;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s;
+
+    &:hover {
+        background: #e53935;
+        color: white;
+    }
+}
+
+.error {
+    color: #e53935;
+    font-size: 12px;
+}

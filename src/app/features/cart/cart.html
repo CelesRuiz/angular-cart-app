@@ -1,0 +1,71 @@
+<div class="header">
+    <h1>Carrito</h1>
+    <button class="btn-logout" type="button" (click)="logout()">Cerrar sesión</button>
+</div>
+<div class="cart">
+    @for (item of items(); track item.id) {
+    <div class="item">
+        <div class="info">
+            <strong>{{ item.name }}</strong>
+            <p>Precio: ${{ item.price }} * {{ item.quantity }}</p>
+            <p>Subtotal: ${{ item.price * item.quantity }}</p>
+        </div>
+        <button (click)="removeItem(item.id)">Eliminar</button>
+    </div>
+    } @empty {
+    <p class="empty">No hay productos en el carrito</p>
+    }
+
+    <div class="total">
+        Total: ${{ getTotal() }}
+    </div>
+</div>
+<h1>Agregue al carrito</h1>
+<div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div>
+            <label>Nombre</label>
+            <input type="text" formControlName="name" placeholder="Ej: Celular">
+            @if (form.controls.name.touched) {
+            @if (form.controls.name.errors?.['required']) {
+            <span class="error">El nombre es requerido</span>
+            }
+            @if (form.controls.name.errors?.['minlength']) {
+            <span class="error">Minimo 3 caracteres</span>
+            }
+            }
+        </div>
+
+        <div>
+            <label>Precio</label>
+            <input type="number" formControlName="price" placeholder="Ej: 500">
+            @if (form.controls.price.touched) {
+            @if (form.controls.price.errors?.['required']) {
+            <span class="error">El precio es requerido</span>
+            }
+            @if (form.controls.price.errors?.['min']) {
+            <span class="error">El precio debe ser mayor a 0</span>
+            }
+            }
+        </div>
+
+        <div>
+            <label>Cantidad</label>
+            <input type="number" formControlName="quantity" placeholder="Ej: 2">
+            @if (form.controls.quantity.touched) {
+            @if (form.controls.quantity.errors?.['required']) {
+            <span class="error">La cantidad es requerida</span>
+            }
+            @if (form.controls.quantity.errors?.['min']){
+            <span class="error">La cantidad debe ser mayor a 0</span>
+            }
+
+            }
+        </div>
+
+        <button type="submit" [disabled]="form.invalid">Agregar</button>
+
+    </form>
+
+</div>
