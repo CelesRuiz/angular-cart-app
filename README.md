@@ -24,3 +24,6 @@ ng serve
 - Usuario: admin
 - Contraseña: 1234
 
+## Deploy 
+angular-cart-app-three.vercel.app
+
